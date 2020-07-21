@@ -1,24 +1,26 @@
 def merge(arrA, arrB):
-    elements = arrA + arrB
-    pivot = elements[0]
-    arrA =[]
-    arrB = []
-    
+    elements = len(arrA) + len(arrB)
+    merge_arr = [0] * elements
 
-    # Your code here
-    for current in elements[1:]:
-        print(current)
-        if current < pivot:
-            arrA.append(current)
-        elif current > pivot:
-            arrB.append(current)
-            
-            
+
+    left, right = 0, 0
+    while left < len(arrA) and right < len(arrB):
+        if arrA[left] <= arrB[right]:
+            print(arrA[left], arrB[right])
+            merge_arr[left + right] = arrA[left]
+            left += 1
         else:
-            return 0
-    
-    
-    return arrA, arrB
+            return left
+        
+        if arrA[left] <= arrB[right]:
+            print(arrA[left], arrB[right])
+            merge_arr[left + right] = arrB[right]
+            right += 1
+        else:
+            return right += 1
+
+            
+    return merge_arr
     
 def merge_sort(arr):
     # Your code here
